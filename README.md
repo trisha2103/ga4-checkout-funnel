@@ -28,8 +28,8 @@ Analyze the checkout funnel using the **GA4 public sample ecommerce** dataset in
 4. Build charts (funnel, device/medium bars, revenue, orders, AOV).
 
 ## Screens
-![Checkout Funnel – Daily Trends](images/page1.png)
-![Revenue & AOV Overview](images/page2.png)
+![Checkout Funnel – Daily Trends](dashboard/page1.png)
+![Revenue & AOV Overview](dashboard/page2.png)
 
 ## License
 MIT
