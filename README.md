@@ -119,3 +119,25 @@ Example: 10,000 checkout sessions, +5 pp lift, AOV $80 ⇒ **+$40,000**.
    - Add the 4 calculated fields above (SUM)
    - Build charts; add Date, Device, Medium controls
    - Share → Anyone with the link (Viewer)
+
+
+<details> <summary>📄 SQL file links</summary>
+
+sql/ga4_base_events.sql
+
+sql/ga4_session_funnel.sql
+
+sql/ga4_daily_revenue.sql
+
+</details>
+
+.
+├─ sql/
+│  ├─ ga4_base_events.sql
+│  ├─ ga4_session_funnel.sql
+│  └─ ga4_daily_revenue.sql
+├─ dashboard/
+│  └─ README.md  # Looker link + notes
+│  ├─ page1.png
+│  └─ page2.png
+└─ README.md
