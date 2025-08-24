@@ -1,35 +1,29 @@
-# Checkout Funnel – GA4 (BigQuery) + Looker Studio
+# 🛒 Checkout Funnel — GA4 (BigQuery) + Looker Studio
 
-Analyze the checkout funnel using the **GA4 public sample ecommerce** dataset in **BigQuery** and visualize KPIs in **Looker Studio**.
+[![Live Report](https://img.shields.io/badge/Live%20Report-Looker%20Studio-1f6feb?logo=google-chrome&logoColor=white)](https://lookerstudio.google.com/reporting/dc5072db-18ea-4e20-aa4c-587f41eb920d)
+![BigQuery](https://img.shields.io/badge/BigQuery-SQL-blue?logo=googlecloud)
+![GA4](https://img.shields.io/badge/Google%20Analytics%204-data-orange?logo=google-analytics)
+![Made with](https://img.shields.io/badge/Visualization-Looker%20Studio-8A2BE2)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-## Dataset
-`bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+Analyze how users move from **view → add_to_cart → checkout → shipping → payment → purchase**, size the drop-offs, and show revenue impact with clean visuals.
 
-## Views (BigQuery)
-- `ga4-lab-469920.ga4_lab.ga4_base_events`
-- `ga4-lab-469920.ga4_lab.ga4_session_funnel`
-- `ga4-lab-469920.ga4_lab.ga4_daily_revenue`
+---
 
-## Highlights
-- End-to-end conversion: _fill with your %_
-- Mobile vs Desktop gap: _pp difference_
-- Revenue: _$R_ · Orders: _N_ · AOV: _$Z_
-- Biggest drop-off: _step_ → experiments proposed
+## ✨ TL;DR Highlights
+- **End-to-end conversion:** **X%**  
+- **Mobile vs Desktop gap:** **Y percentage points**  
+- **Revenue:** **$R** · **Orders:** **N** · **AOV:** **$Z**  
+- **Biggest drop-off:** **<step>** → *top fixes below*  
+> Fill these with your numbers after running the views.
 
-## Reproduce
-1. Run the SQL files in `/sql` to create the views.
-2. In Looker Studio, connect to `ga4_session_funnel` & `ga4_daily_revenue`.
-3. Add fields:
-   - `Sessions = 1` (SUM)
-   - `CartReached = CASE WHEN t_add_to_cart IS NULL THEN 0 ELSE 1 END` (SUM)
-   - `CheckoutReached = CASE WHEN t_begin_checkout IS NULL THEN 0 ELSE 1 END` (SUM)
-   - `Purchased = CASE WHEN t_purchase IS NULL THEN 0 ELSE 1 END` (SUM)
-   - Optional `MediumFilled = IFNULL(medium, "(none)")` (Text)
-4. Build charts (funnel, device/medium bars, revenue, orders, AOV).
+---
 
-## Screens
-![Checkout Funnel – Daily Trends](dashboard/Page 1.png)
-![Revenue & AOV Overview](dashboard/Page 2.png)
+## 🔎 Problem → 💡 Solution → 📈 Impact
 
-## License
-MIT
+**Problem.** Where are we losing users in checkout, and how much money is left on the table?
+
+**Solution.** Build a session-level funnel in **BigQuery** from the GA4 public ecommerce dataset, and visualize **conversion**, **step drop-offs**, **device/channel splits**, and **revenue/AOV** in **Looker Studio**.
+
+**Impact.** Prioritize experiments on the worst step (especially on **mobile**).  
+A quick sizing:
